@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_064305) do
+ActiveRecord::Schema.define(version: 2021_03_07_003427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_064305) do
   create_table "cookies", force: :cascade do |t|
     t.string "cookie_identifier_id", null: false
     t.integer "customer_id"
-    t.datetime "creation_datetime", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,6 +62,14 @@ ActiveRecord::Schema.define(version: 2021_03_06_064305) do
     t.string "email"
     t.string "password_digest"
     t.string "type", null: false
+    t.datetime "creation_datetime", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -91,8 +98,8 @@ ActiveRecord::Schema.define(version: 2021_03_06_064305) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.float "price", null: false
-    t.string "size", default: [], null: false, array: true
     t.float "sale_price"
+    t.string "size", default: [], null: false, array: true
     t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

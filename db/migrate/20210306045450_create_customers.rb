@@ -13,6 +13,7 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :password_digest
       t.string :type, null: false
+      t.datetime :creation_datetime, null: false
       
       t.timestamps
     end

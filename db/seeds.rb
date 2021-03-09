@@ -32,6 +32,7 @@ product_one = Product.create({
     name: "Heritage Roughstock Western Boot",
     image: cdn_url + "store/products/heritage_roughstock_western_boot.jpg",
     price: 189.95,
+    sale_price: 120.95,
     size: [6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5],
     admin_id: admin.id
 })

@@ -6,14 +6,14 @@ class Product < ApplicationRecord
 
     validates :name, {
         uniqueness: true,
-        length: { within: 15..40 },
-        format: { with: /[a-zA-Z]/, message: "only letters are allowed" },
+        format: { with: /[a-zA-Z\s]/, message: "only letters are allowed" },
         presence: true
     }
 
     validates :image, {
-        uniqueness: true, 
-        format: { with: /\A(https:\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*\z/, message: "not valid url" },
+        uniqueness: true,
+        # We need to fix this validation. Bug
+        # format: { with: /\A(https:\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*\z/, message: "not valid url" },
         presence: true
     }
 

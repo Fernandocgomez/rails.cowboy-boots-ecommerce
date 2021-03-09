@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :image, null: false
       t.float :price, null: false
-      t.float :sale_price
+      t.float :sale_price, null: true, default: nil
       t.float :size, null: false, array: true
       t.integer :admin_id
       

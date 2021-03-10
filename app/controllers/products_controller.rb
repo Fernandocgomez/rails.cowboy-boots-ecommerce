@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
     
+    ###
+    # @description: Write doc.
+    # @param {any}: 
+    # @return {any}: 
+    ###
     def show
         product = Product.find_by_id(params[:id])
         if(product)
@@ -9,6 +14,11 @@ class ProductsController < ApplicationController
         end
     end
 
+    ###
+    # @description: Write doc.
+    # @param {any}: 
+    # @return {any}: 
+    ###
     def get_products_by_collection
         collection = Collection.find_by_id(params[:collection_id])
         if(collection)

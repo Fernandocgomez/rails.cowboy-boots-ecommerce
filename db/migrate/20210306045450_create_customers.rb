@@ -12,7 +12,7 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
       t.string :phone
       t.string :email
       t.string :password_digest
-      t.string :type, null: false
+      t.string :user_type, null: false, default: "guest"
       t.datetime :creation_datetime, null: false
       
       t.timestamps

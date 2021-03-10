@@ -9,8 +9,17 @@
 cdn_url = "https://d1l9z57rsk8jbg.cloudfront.net/"
 
 admin = Admin.create({
-    username: "testadmin",
+    email: "fernandocgomez@live.com",
     password: "admin32%"
+})
+
+customer = Customer.create({
+    first_name: "Fernando",
+    last_name: "Gomez",
+    email: "fer@live.com",
+    password: "fernando123",
+    user_type: "customer",
+    creation_datetime: DateTime.now()
 })
 
 best_seller_collection = Collection.create({

@@ -1,13 +1,16 @@
 class AuthenticationController < ApplicationController
     skip_before_action :authenticate_request
    
+    ###
+    # @description: Authenticate user
+    # @return {JSON}: Token or Error message 
+    ###
     def authenticate
-      command = AuthenticateAdmin.call(params[:username], params[:password])
-   
-      if command.success?
-        render json: { auth_token: command.result }
+      encoded_token = AuthenticateUser.call(params[:email], params[:password])
+      if encoded_token.success?
+        render json: { auth_token: encoded_token.result }
       else
-        render json: { error: command.errors }, status: :unauthorized
+        render json: { error: encoded_token.errors }, status: :unauthorized
       end
     end
 end

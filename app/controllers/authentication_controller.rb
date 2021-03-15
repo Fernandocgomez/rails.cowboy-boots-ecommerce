@@ -3,12 +3,16 @@ class AuthenticationController < ApplicationController
    
     ###
     # @description: Authenticate user
-    # @return {JSON}: Token or Error message 
+    # @return {JSON}: Token and user or Error message 
     ###
     def authenticate
       encoded_token = AuthenticateUser.call(params[:email], params[:password])
       if encoded_token.success?
-        render json: { auth_token: encoded_token.result }
+        if(encoded_token.result[:user].class === Admin)
+          render json: { res: { user: AdminSerializer.new(encoded_token.result[:user]), token: encoded_token.result[:token] } }
+        else
+          render json: { res: { user: CustomerSerializer.new(encoded_token.result[:user]), token: encoded_token.result[:token] } }
+        end 
       else
         render json: { error: encoded_token.errors }, status: :unauthorized
       end

@@ -21,9 +21,11 @@ class AuthenticateUser
       return nil unless user
 
       if user.class == Admin
-          JsonWebToken.encode(admin_id: user.id)
+        token = JsonWebToken.encode(admin_id: user.id)
+        return { user: user, token: token }
       else
-          JsonWebToken.encode(customer_id: user.id)
+        token = JsonWebToken.encode(customer_id: user.id)
+        return { user: user, token: token }
       end
       
     end

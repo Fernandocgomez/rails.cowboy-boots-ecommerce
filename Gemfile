@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 # https://github.com/nebulab/simple_command
 gem 'simple_command'
+# https://github.com/rails-api/active_model_serializers/tree/0-10-stable
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
